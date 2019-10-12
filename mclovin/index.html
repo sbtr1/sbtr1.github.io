@@ -1,6 +1,12 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
+
 <head>
+    <script src="p5.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <meta charset="utf-8">
     <meta name="description" content="">
     <title>dating pool simulation</title>
@@ -8,28 +14,84 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Custom styling -->
     <link rel="stylesheet" href="/css/style.css">
-    <script src="p5.js"></script>
-    <script src="p5.dom.min.js"></script>
-    <script src="p5.sound.min.js"></script>
-</head>
+ </head>
+ 
 
+ <body>
+    <div class="header">
+        <h1>dating pool simulation</h1>     
+    </div>
+    <nav>
+       	<ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/about/">about</a></li>
+            <li><a href="/portfolio/">portfolio</a></li>
+            <li><a href="/thesis/">thesis</a></li>
+            <li><a href="/mclovin/">simulation</a></li>
+            <li><a href="/bookmarks/">bookmarks</a></li>
+        </ul>
+    </nav>
 
+    <!-- Bootstrap grid setup -->
+    <div class="textbox" style="margin-bottom: 2em; margin-top: 2em;">
+        <p>How does a dating pool evolve as people pair up and move out? Adjust the inputs, then click the button to simulate.</p>
+    </div>
+  	<div class="container" style="margin-bottom: 2em;">
 
-
-
-<body>
-
-	    <!-- Bootstrap grid setup -->
-    <div class="container">
-        <div class="row">
-            <div class ="col-md-12">
-                <div id="chart-area"></div>
+  	   	<div class="row">
+          <div class="col-md-9">
+              <div id="simulation-chart"></div>                 
+          </div> 
+      	</div>
+      	<div class = "row" style= "margin-top: 2em;">
+			<div class="col-md-3">
+                <p>Number of people (1 to 50):</p>
+            </div>
+            <div class="col-md-3">
+                <p>Probability of a match (0 to 100%):</p>
+            </div>
+            <div class="col-md-3">
+                <p>Proportion of males (0 to 100%):</p>
             </div>
         </div>
+      	<div class = "row" style= "margin-top: 3em;">
+      		<div class="col-md-4">
+      		</div>
+			<div class="col-md-1" id = "playreset">
+                <button id="simulate-button" class="btn btn-primary" >Simulate!</button>
+            </div>
+            <div class="col-md-4">
+      		</div>
+        </div>    
     </div>
 
+    <script>
+        $( "#peopleslider" ).slider({min:0, max: 100 , value: 50});
+    </script>
+    
+    <script>
+        $( "#matchslider" ).slider({min:0, max: 100 , value: 50});
+    </script>
+    
+    <script>
+        $( "#genderslider" ).slider({min: 0, max: 100, value: 50});
+    </script>
 
+    <!-- External JS libraries -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<!-- Custom JS -->
     <script src="sketch.js"></script>
-  
+    
+
+    <footer>
+        <ul>
+            <li><a href="https://github.com/sbtr1" target="_blank">github</a></li>
+            <li><a href="https://twitter.com/sbtr11" target="_blank">twitter</a></li>
+            <li><a href="https://medium.com/@sbtr1" target="_blank">medium</a></li>
+        </ul>
+    </footer>
 </body>
+
+
 </html>

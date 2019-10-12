@@ -1,40 +1,42 @@
-let w = 800;
+let w = 900;
 let h = 500;
 let people = [];
-var started = false;
-var numPeople, button, pmatch, pmale;
+var numPeople, pmatch, pmale;
 var peopleslider, matchslider, genderslider;
 
+$("#simulate-button")
+    .on("click", function(){
+        startSketch();
+        loop();
+    })
+
+
 function setup() {
-  createCanvas(w, h);
+  var canvas = createCanvas(w, h);
+  canvas.parent('simulation-chart');
   noStroke();
   background(50, 90, 100);
-  textSize(20);
+  frameRate(80);
   textAlign(CENTER);
-  text("Dating pool simulation. Adjust the inputs, then click button to simulate.", width/2, 100);
   textSize(16);
-  text("Number of people (1 to 50):", width/2 - 10, 160);
-  text("Probability of a match (0 to 100%):", width/2 - 10, 240);
-  text("Proportion of males (0 to 100%):", width/2 - 10, 310);
-  peopleslider = createSlider(1, 50, 25);
-  peopleslider.position(width/2 - 70,170);
-  matchslider = createSlider(0, 100, 50);
-  matchslider.position(width/2 - 70, 250);
-  genderslider = createSlider(0, 100, 50);
-  genderslider.position(width/2 - 70, 320);
-  button = createButton("Start");
-  button.position(width/2 - 20, 400);
-  button.mousePressed(startSketch);
+  peopleslider = createSlider(1, 50, 25).parent('simulation-chart');
+  peopleslider.position(20, height + 70);
+  peopleslider.style('width', '200px');
+  matchslider = createSlider(0, 100, 50).parent('simulation-chart');
+  matchslider.position(width/2 - 120, height + 70);
+  matchslider.style('width', '200px');
+  genderslider = createSlider(0, 100, 50).parent('simulation-chart');
+  genderslider.position(width - 280, height + 70);
+  genderslider.style('width', '200px');
+  noLoop();
 }
 
 function draw() {
-  if(started) {
-    background(50, 90, 100);
+    background(50, 90, 100); 
     for (let i = 0; i < people.length; i++) {
       detectMatch(i);
       people[i].move();
       people[i].display();
-    }
   }
 }
 
@@ -91,14 +93,11 @@ function detectMatch(count) {
 }
 
 function startSketch() {
-  started = true; 
+  background(50, 90, 100); 
   numPeople = peopleslider.value();
   pmatch = matchslider.value()/100;
   pmale = genderslider.value()/100;
-  button.hide();
-  peopleslider.hide();
-  matchslider.hide();
-  genderslider.hide();
+  people = [];
  
   people.push(new Person());
   
@@ -122,5 +121,4 @@ function startSketch() {
     }
   }  
 }
-
 

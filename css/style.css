@@ -30,8 +30,9 @@ p {
     line-height: 1.2em;
     color: #333;
 }
+
 footer {
-    border-top: 1.5px solid #cccccc;
+    border-top: 5px solid #cccccc;
     font-size: .9em;
 }
 
