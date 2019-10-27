@@ -78,7 +78,11 @@ class Person {
 function detectMatch(count) {
   let j = count;
   for (let i = 0; i < numPeople; i++) {
-    if (i != j && dist(people[i].x, people[i].y, people[j].x, people[j].y) < people[i].diameter/2 + people[j].diameter/2 && people[i].single && people[j].single){
+    if (i != j 
+        && dist(people[i].x, people[i].y, people[j].x, people[j].y) < people[i].diameter/2 + people[j].diameter/2 
+        && people[i].single 
+        && people[j].single)
+    {
       people[i].xspeed = -people[i].xspeed;
       people[i].yspeed = -people[i].yspeed;
       if (people[i].c != people[j].c){
