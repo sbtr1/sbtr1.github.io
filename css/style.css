@@ -68,8 +68,6 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-
-
 .post-container {
     margin: 20px 20px 0 0;  
     overflow: auto
@@ -79,4 +77,12 @@ tr:nth-child(even) {
 }
 .writeup img {
     display: block
+}
+
+.mylist {
+    font-size: 1.2em;   
+}
+
+.mybullet {
+    margin: 0.5em;
 }
